@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>SERVICE</title>
+<script src="angular.min.js"></script>
+<script>
+angular.module('nethra',[]).service('neth',function(){
+    this.validate=function(x,y){
+	  if(x == "nethra" && y == "0987"){ return true; } else { return false; }
+	};
+}).controller('One',function($scope,$rootScope, neth){
+  $scope.login=function(){
+    var check=neth.validate($scope.Usname,$scope.password);
+	alert(check);
+	}
+}).controller('Two',function($scope,$rootScope, neth){
+});
+	
+</script>
+<body ng-app="nethra">
+<div ng-controller="One" ng-show="login">
+Username:<input type="text" ng-model="Usname" ><br>
+Password:<input type="password" ng-model="password"><br>
+<!--<input type="submit" ng-click="login()">-->
+<button ng-click="login()">Login</button>
+</div>
+<div ng-controller="Two" ng-show="home">
+<h1> Hey {{message}} , Welcome! </h1>
+
+</div>
+</body>
+</html>

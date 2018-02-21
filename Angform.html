@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="angular.min.js"></script>
+</head>
+<body style="background-color:#B3B6B7">
+<font face="ariel" color="green">
+<body ng-app="MyApp">
+<div ng-controller="Ctrl">
+ <p>Enter name:</p>
+<p>FirstName : <input type="text" ng-model="name" placeholder="Enter name here"></p>
+<p>Lastname : <input type="password" ng-model="name1" placeholder="Enter password here"></p>
+Name:{{ fullName() }}
+<br>Gender<br>                          
+<input type="radio" name="gender" ng-model="Val" value="Male" ng-click="getVal()">Male<br>         <input type="radio" name="gender" ng-model="Val" value="Female" ng-click="getVal()">Female<br>
+
+
+                      
+Gender: {{change}}
+ 
+
+</div>
+</font>
+<script>
+aap = angular.module("MyApp", [])
+.controller("Ctrl",["$scope",function($scope) {
+$scope.name="";
+$scope.name1="";
+$scope.change="";
+ 
+$scope.fullName=function()
+{
+return $scope.name + " " + $scope.name1; 
+
+};       
+$scope.getVal=function()
+{
+        
+        
+console.log($scope.Val);
+        
+$scope.change=$scope.Val;
+ 
+return $scope.name + " " + $scope.name1;  }   
+}]);
+   
+</script>
+</body>
+</html>
